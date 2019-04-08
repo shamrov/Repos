@@ -2,6 +2,63 @@ import random
 import math
 
 
+# L_02_EASY
+
+
+# Задача-1:
+# Дан список фруктов.
+# Напишите программу, выводящую фрукты в виде нумерованного списка,
+# выровненного по правой стороне.
+
+# Пример:
+# Дано: ["яблоко", "банан", "киви", "арбуз"]
+# Вывод:
+# 1. яблоко
+# 2.  банан
+# 3.   киви
+# 4.  арбуз
+
+# Подсказка: воспользоваться методом .format()
+
+
+list_fr = ["яблоко", "банан", "киви", "арбуз"]
+index = 0
+sor = len(list_fr[0])
+for index, i in enumerate(list_fr):
+    print("{} {:>{}}".format(str(index + 1) + '.', i, sor))
+
+# Задача-2:
+# Даны два произвольные списка.
+# Удалите из первого списка элементы, присутствующие во втором списке.
+
+f_list = [random.randint(0, 10) for i in range(0, 10)]
+s_list = [random.randint(0, 10) for i in range(0, 10)]
+print("Первый список: ", f_list)
+print("Второй список: ", s_list)
+set_f_list = set(f_list)
+set_s_list = set(s_list)
+full_list = set_f_list - set_s_list
+print("Magic:", full_list, "\nОстались только сильнейшие")
+
+# Задача-3:
+# Дан произвольный список из целых чисел.
+# Получите НОВЫЙ список из элементов исходного, выполнив следующие условия:
+# если элемент кратен двум, то разделить его на 4, если не кратен, то умножить на два.
+
+last_list = [random.randint(0, 10) for i in range(0, 10)]
+final_list = []
+print("Изначальный список: ", last_list)
+for i in last_list:
+    if i % 2 == 0:
+        final_list.append(int(i / 4))
+    else:
+        final_list.append(int(i * 2))
+print("Конечный вариант: ", final_list)
+
+
+# L_02_EASY - complete
+
+
 # L_02_NORMAL
 
 
@@ -17,8 +74,8 @@ new_list = []
 for i in f_list:
     if i > 0:
         sl = math.sqrt(i)
-        if i % sl == 0:
-            new_list.append(round(sl))
+        if sl == int(sl):
+            new_list.append(int(sl))
 print(f_list)
 print(new_list)
 
